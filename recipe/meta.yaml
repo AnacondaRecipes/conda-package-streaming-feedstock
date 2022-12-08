@@ -10,35 +10,37 @@ source:
   sha256: 87be2b1c365a0e04d15579b9137b139f0837c52198bdba21c5ac071fc13efd75
 
 build:
-  script: {{ PYTHON }} -m pip install --no-build-isolation . -vv
   number: 0
-  noarch: python
+  skip: True  # [py<37]
+  script: {{ PYTHON }} -m pip install --no-build-isolation . -vv
 
 requirements:
   host:
     - flit-core
-    - python >=3.7
+    - python
     - pip
   run:
+    - python
     - zstandard >=0.15
-    - python >=3.7
     # 'requests' is optional, only needed for 'url' submodule
 
 test:
   imports:
+    - conda_package_streaming
     - conda_package_streaming.url
-  commands:
-    - pip check
   requires:
     - pip
     - requests
+  commands:
+    - pip check
 
 about:
   home: https://github.com/conda/conda-package-streaming
   summary: Download metadata from conda packages without transferring entire file.
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
-  doc_url: https://conda.github.io/conda-package-streaming/
+  doc_url: https://github.com/conda/conda-package-streaming/blob/main/README.md
   dev_url: https://github.com/conda/conda-package-streaming
 
 extra:
