@@ -30,7 +30,6 @@ test:
     - conda_package_streaming.url
   requires:
     - pip
-    # - requests
   commands:
     - pip check
 
@@ -48,5 +47,3 @@ about:
 extra:
   recipe-maintainers:
     - dholth
-  # skip-lints:
-  #   - missing_wheel
