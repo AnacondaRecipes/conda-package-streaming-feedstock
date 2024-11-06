@@ -22,14 +22,14 @@ requirements:
   run:
     - python
     - zstandard >=0.15
-    - requests
-
+    # 'requests' is optional, only needed for 'url' submodule
 test:
   imports:
     - conda_package_streaming
     - conda_package_streaming.url
   requires:
     - pip
+    - requests
   commands:
     - pip check
 
