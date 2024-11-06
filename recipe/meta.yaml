@@ -23,6 +23,7 @@ requirements:
     - python
     - zstandard >=0.15
     # 'requests' is optional, only needed for 'url' submodule
+
 test:
   imports:
     - conda_package_streaming
