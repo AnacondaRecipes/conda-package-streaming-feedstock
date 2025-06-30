@@ -1,5 +1,5 @@
 {% set name = "conda-package-streaming" %}
-{% set version = "0.11.0" %}
+{% set version = "0.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/conda/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 407ec0bd3f65fccc3ac8e02f7ba3bb31c95ceca10ebdcfe66120bf56db28e59b
+  sha256: 2cd261d3bc3bd4c51e2bb84a8397b6cc1b591f837838439d4befc12fc3d77314
 
 build:
   number: 0
-  skip: True  # [py<37]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
 requirements:
@@ -35,7 +35,7 @@ test:
 
 about:
   home: https://github.com/conda/conda-package-streaming
-  summary:  An efficient library to read from new and old format .conda and .tar.bz2 conda packages.
+  summary: An efficient library to read from new and old format .conda and .tar.bz2 conda packages.
   description: |
     An efficient library to read from new and old format .conda and .tar.bz2 conda packages.
   license: BSD-3-Clause
